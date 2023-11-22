@@ -7,13 +7,13 @@ import {
   ContactIcon,
   Container,
 } from './AppBar.styled';
-
+import { selectIsLoading } from '../../Redux/selectors';
 import { Spiner } from 'pages/ContactList/ContactList.styled';
 import { UserMenu } from 'components/UserMenu/UserMenu';
 import { useSelector } from 'react-redux';
 
 export const AppBar = () => {
-  const { isLoaggedIn, isLoading } = useSelector(state => state.auth); 
+  const { isLoaggedIn, isLoading } = useSelector(selectIsLoading);
 
   return (
     <header>
@@ -54,5 +54,3 @@ export const AppBar = () => {
     </header>
   );
 };
-
-

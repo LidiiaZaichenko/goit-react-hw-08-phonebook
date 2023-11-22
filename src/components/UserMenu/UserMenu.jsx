@@ -4,9 +4,10 @@ import { Wrap } from './Usermenu.styled';
 import { logOut } from 'Redux/Authorization/operations';
 import { useDispatch } from 'react-redux';
 import { LogoutOutlined } from '@ant-design/icons';
+import { selectEmail } from '../../Redux/selectors';
 
 export const UserMenu = () => {
-  const { email } = useSelector(state => state.auth.user);
+  const { email } = useSelector(selectEmail);
   const dispatch = useDispatch();
 
   return (
@@ -19,4 +20,3 @@ export const UserMenu = () => {
     </Wrap>
   );
 };
-

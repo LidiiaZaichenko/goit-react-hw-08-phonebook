@@ -11,12 +11,13 @@ import {
   OpenAddModal,
 } from './ContactForm.styled';
 import { PlusCircleOutlined } from '@ant-design/icons';
+import { selectContacts, selectLoader } from '../../Redux/selectors';
 
 export const ContactForm = () => {
   const [open, setOpen] = useState(false);
   const [form] = FormWrap.useForm();
-  const currentContacts = useSelector(state => state.contacts.items);
-  const loader = useSelector(state => state.contacts.isLoading);
+  const currentContacts = useSelector(selectContacts);
+  const loader = useSelector(selectLoader);
   const dispatch = useDispatch();
 
   const showModal = () => {

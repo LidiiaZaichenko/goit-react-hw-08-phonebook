@@ -2,10 +2,11 @@ import { WrapperFiler, FilterInput, FilterP } from './Filter.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { filtration } from 'Redux/Contacts/filterSlice';
 import { SearchOutlined } from '@ant-design/icons';
+import { selectFilter } from '../../Redux/selectors';
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.filter);
+  const filter = useSelector(selectFilter);
 
   return (
     <WrapperFiler>

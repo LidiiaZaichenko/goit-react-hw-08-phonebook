@@ -8,6 +8,7 @@ import { PrivateRoute } from './PrivateRoute';
 import { RestrictedRoute } from './RestrictedRoute';
 import { ToastContainer } from 'react-toastify';
 import { Spiner } from 'pages/ContactList/ContactList.styled';
+import { selectIsLoading } from '../Redux/selectors';
 
 const Register = lazy(() => import('../pages/Register/Register'));
 const Home = lazy(() => import('../pages/Home/Home'));
@@ -21,7 +22,7 @@ export const App = () => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  const { isRefreshing } = useSelector(state => state.auth);
+  const { isRefreshing } = useSelector(selectIsLoading);
 
   return !isRefreshing ? (
     <>

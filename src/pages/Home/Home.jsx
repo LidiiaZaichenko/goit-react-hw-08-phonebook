@@ -11,9 +11,10 @@ import {
 } from './Home.styled';
 
 import { useSelector } from 'react-redux';
+import { selectIsLoading } from '../../Redux/selectors';
 
 export default function Home() {
-  const { isLoaggedIn } = useSelector(state => state.auth);
+  const { isLoaggedIn } = useSelector(selectIsLoading);
 
   return (
     <Section>

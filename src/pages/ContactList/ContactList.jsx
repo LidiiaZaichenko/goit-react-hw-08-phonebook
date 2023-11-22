@@ -27,6 +27,11 @@ import { Filter } from 'components/Filter/Filter';
 import { ContactForm } from 'components/ContactForm/ContactForm';
 import { Button, Popconfirm } from 'antd';
 import { DeleteOutlined, EditOutlined } from '@ant-design/icons';
+import {
+  selectContacts,
+  selectFilter,
+  selectIsLoadingContacts,
+} from '../../Redux/selectors';
 
 export default function Contactlist() {
   const [subName, setSubName] = useState('');
@@ -55,9 +60,9 @@ export default function Contactlist() {
     dispatch(fetchContacts());
   }, [dispatch]);
 
-  const { isLoading } = useSelector(state => state.contacts);
-  const contacts = useSelector(state => state.contacts.items);
-  const filterData = useSelector(state => state.filter).toLowerCase();
+  const { isLoading } = useSelector(selectIsLoadingContacts);
+  const contacts = useSelector(selectContacts);
+  const filterData = useSelector(selectFilter).toLowerCase();
 
   const visibleContacts = contacts.filter(subscriber =>
     subscriber.name.toLowerCase().includes(filterData)
